@@ -1,0 +1,217 @@
+:root {
+    --primary-color: #2563eb;    /* Modern blue */
+    --secondary-color: #4f46e5;  /* Indigo */
+    --text-color: #1e293b;       /* Dark slate */
+    --text-light: #64748b;       /* Medium slate */
+    --background-light: #f1f5f9; /* Light slate */
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 2rem;
+    background-color: #f8fafc;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    letter-spacing: -0.03em;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+}
+
+.div-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 1280px) {
+    .div-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .div-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.square {
+    background: linear-gradient(145deg, #ffffff 0%, var(--background-light) 100%);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgba(203, 213, 225, 0.2);
+}
+
+.square:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.square h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+}
+
+.square p {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin: 0;
+    line-height: 1.7;
+    max-width: 90%;
+    font-weight: 400;
+}
+
+#site-web {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+#site-web:hover {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+#site-web::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+#site-web:hover::after {
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        width: 95%;
+        padding: 2rem;
+    }
+    
+    .title {
+        font-size: 2.25rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    .square {
+        min-height: 260px;
+        padding: 1.75rem;
+    }
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 1.5rem;
+    }
+    
+    .container {
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+    
+    .square {
+        min-height: 240px;
+        padding: 1.5rem;
+    }
+}
+
+.result {
+    height: auto; 
+    width: 100%;
+}
+
+.result-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.result-table th, .result-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.result-table th {
+    background-color: #007acc;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.result-table td {
+    background-color: #ffffff;
+    font-size: 14px;
+}
+
+.result-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.result-table td a {
+    color: #007acc;
+    text-decoration: none;
+}
+
+.result-table td a:hover {
+    text-decoration: underline;
+}
+
+.result-table .no-results {
+    text-align: center;
+    font-size: 18px;
+    color: #777;
+    padding: 20px;
+}

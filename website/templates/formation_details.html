@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formation Details</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles3.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="formation-header">
+          <h1 class="formation-title">{{ formation.titre_Formation }}</h1>
+          <div class="etablissement-name">{{ formation.nom_etablissement }}</div>
+        </div>
+    
+        <div class="details-grid">
+          <div class="detail-card">
+            <div class="section-title">Durée de Formation</div>
+            <div class="detail-content">{{ formation.duree_Formation }} an</div>
+            
+            <div class="section-title">Niveau de Formation</div>
+            <div class="detail-content">{{ formation.niveau_Formation }}</div>
+          </div>
+
+          <div class="detail-card">
+            <div class="section-title">Caractéristiques</div>
+            
+            <div class="section-title">Modalité</div>
+            <div class="detail-content">{{ formation.modalite_Formation }}</div>
+            
+            <div class="section-title">Site Officiel</div>
+            <a href="{{ formation.page_web_Formation }}" class="website-link" target="_blank">
+              Visiter le site web →
+            </a>
+          </div>
+        </div>
+      </div>
+</body>
+</html>

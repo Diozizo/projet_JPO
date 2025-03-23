@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles4.css') }}">
+    <title>Ajouter Données</title>
+</head>
+<body>
+    <div>
+        <h2>Ajouter des Données</h2>
+
+        <form method="post">
+            <div class="select-container">
+                <label for="tableSelect">Choisir une table :</label>
+                <select id="tableSelect" name="table_name" onchange="fetchColumns()">
+                    <option value=""></option>
+                    {% for table in tables %}
+                        <option value="{{ table }}">{{ table }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div id="dynamicForm" class="form-container"></div>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='script2.js') }}"></script>
+</body>
+</html>

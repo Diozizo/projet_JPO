@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles2.css') }}">
+    <title>Établissement Info</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="title" id="nom-etablissement">{{ etablissement.nom_Etablissement }}</div>
+
+        <div class="div-container">
+            <div class="square" id="adresse">
+                <h2>Adresse</h2>
+                <p><strong>Adresse: </strong> {{ etablissement.adresse_complete }}</p>
+                <p><strong>Code UAI:</strong> {{ etablissement.code_uai }}</p>
+            </div>
+
+            <div class="square" id="contact">
+                <h2>Contact</h2>
+                <p><strong>Téléphone:</strong> {{ etablissement.num_tel_Etablissement }}</p>
+                <p><strong>Site Web:</strong> <a id="site-web" href="{{ etablissement.site_web_Etablissement }}" target="_blank">Visiter</a></p>
+            </div>
+
+            <div class="square" id="jpo">
+                <h2>Journées Portes Ouvertes (JPO)</h2>
+                <p><strong>Description:</strong> {{ etablissement.description_JPO | urlize}}</p>
+            </div>
+
+            <div class="square" id="caracteristiques">
+                <h2>Caractéristiques</h2>
+                <p><strong>Type d'établissement:</strong> {{ etablissement.type_Etablissement }}</p>
+                <p><strong>Hébergement:</strong> {{ etablissement.Hebergement_Etablissement }}</p>
+                <p><strong>Statut: </strong> {{etablissement.statut_Etablissement}}</p>
+            </div>
+        </div>
+        <div class="result">
+            <table class="result-table">
+                <thead>
+                    <tr>
+                        <th>Titre de la Formation</th>
+                        <th>Niveau de la Formation</th>
+                        <th>Durée de la Formation</th>
+                        <th>Modalité</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if etablissement.formations %}
+                        {% for formation in etablissement.formations %}
+                        <tr>
+                            <td>{% if formation.id_Formation %}
+                                <a href="{{ url_for('formation_details', formation_id=formation.id_Formation) }}">
+                                    {{ formation.titre_Formation }}
+                                </a>
+                            {% else %}
+                                No formation linked
+                            {% endif %}</td>
+                            <td>{{ formation.niveau_Formation }}</td>
+                            <td>{{ formation.duree_Formation }} an</td>
+                            <td>{{ formation.modalite_Formation }}</td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr class="no-results">
+                            <td colspan="4">Aucune formation disponible</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+        
+        
+    </div>
+</body>
+</html>

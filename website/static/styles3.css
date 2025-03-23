@@ -1,0 +1,134 @@
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #4f46e5;
+    --text-color: #1e293b;
+    --text-light: #64748b;
+    --background-light: #f1f5f9;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 2rem;
+    background-color: #f8fafc;
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  .formation-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .formation-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.03em;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .etablissement-name {
+    font-size: 1.8rem;
+    color: var(--text-light);
+    font-weight: 500;
+  }
+
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .detail-card {
+    background: linear-gradient(145deg, #ffffff 0%, var(--background-light) 100%);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid rgba(203, 213, 225, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .detail-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .section-title {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .detail-content {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+  }
+
+  .website-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+  }
+
+  .website-link:hover {
+    color: var(--secondary-color);
+  }
+
+  .website-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    transition: width 0.3s ease;
+  }
+
+  .website-link:hover::after {
+    width: 100%;
+  }
+
+  @media (max-width: 1280px) {
+    .details-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 1.5rem;
+      width: 95%;
+    }
+
+    .formation-title {
+      font-size: 2rem;
+    }
+
+    .etablissement-name {
+      font-size: 1.4rem;
+    }
+
+    .detail-content {
+      font-size: 1rem;
+    }
+  }

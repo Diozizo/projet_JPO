@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles4.css') }}">
+    <title>Modifer / Supprimer Données</title>
+</head>
+<body>
+    <div>
+        <h2>Modifier ou supprimer des Données</h2>
+            <div class="select-container">
+                <label for="tableSelect">Choisir une table :</label>
+                <select id="tableSelect" name="table_name" onchange="addModifyOrDeleteButtons()">
+                    <option value=""></option>
+                    {% for table in tables %}
+                        <option value="{{ table }}">{{ table }}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="inputIdForTable">Entrer ID d'element</label>
+                <input type="text" id="inputIdForTable" name="id" placeholder="ID" required>
+            </div>
+
+            <div id="dynamicForm" class="form-container"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script3.js') }}"></script>
+</body>
+</html>
