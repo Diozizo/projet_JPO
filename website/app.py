@@ -144,10 +144,10 @@ def search_jpo():
                 'nom_rue_Adresse': jpo[5],
                 'latitude_Adresse': jpo[6],
                 'longitude_Adresse': jpo[7],
-                'dates': []
+                'dates': set()
             }
         if jpo[8]:
-            grouped_results[etab_id]['dates'].append(jpo[8])
+            grouped_results[etab_id]['dates'].add(jpo[8])
 
     results = []
     for etab in grouped_results.values():
