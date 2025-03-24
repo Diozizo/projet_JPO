@@ -7,7 +7,7 @@ from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 
 # API key for geocoding
-GEOCODE_API_KEY = 'e2ab1e0e96e64926be8f2c3f15f185c3'
+GEOCODE_API_KEY = 'your_api_key'
 
 def geocode_address(address):
     """Get latitude and longitude from an address using OpenCage API."""
